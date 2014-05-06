@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Tasker. Control your tasks easily</title>
+        <link rel="shortcut icon" href="img/favicon.png">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <script src="js/jquery.js"></script>
+    </head>
+    <body style="background: url('img/bgimg-signin.jpg'); background-repeat: no-repeat; background-size: cover;">
+        <p>&nbsp;</p>
+        <div class="hero-unit" style="background: rgba(119, 136, 153, 0.5);">
+            <div align="center">
+                <a href="./">
+                    <img alt="Title" src="img/title.png" />
+                </a>
+            </div>
+        </div>
+        <div align="center" >
+            <div style="width: 50%; color: lightblack; background: rgba(119, 136, 153, 0.4); border-radius: 10px;">
+                <div align="center">
+                    <img alt="SignIn" src="img/signin.png"/>
+                </div>
+                <p>&nbsp;</p>
+                <div class="row-fluid">
+                    <div style="width: 100%">
+                        <input class="span3" type="text" id="inputName" placeholder="Name">
+                        <input class="span3" type="text" id="inputLastName" placeholder="Last Name">
+                        <input class="span6 " type="text" id="inputEmail" placeholder="Email">
+                    </div>
+                    <div style="width: 100%">
+                        <input class="span4" type="text" id="inputUser" placeholder="Username">
+                        <input class="span4" type="password" id="inputPassword1" placeholder="Enter Password">
+                        <input class="span4" type="password" id="inputPassword2" placeholder="Confirm Password">
+                    </div>
+                    <p>&nbsp;</p>
+                    <div style="width: 70%" id="signinAlert"></div>
+                    <button onclick="signUp()" type="submit" class="btn btn-primary" style="width: 97%" >
+                        <strong>Let's</strong> create your account!
+                    </button>
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+            <p>&nbsp;</p>
+        </div>
+        <div class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="navbar-inner">
+                <div class="container">
+                    <ul class="nav">
+                        <li><a href="./">Login Page</a></li>
+                        <li class="active"><a>Join Tasker</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/user-access.js"></script>
+        <script src="js/ws.js"></script>
+        <script src="js/tasker-services.js"></script>
+    </body>
+</html>
