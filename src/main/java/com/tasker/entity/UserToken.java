@@ -11,7 +11,6 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -48,7 +47,7 @@ public class UserToken implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 100)
     @Column(name = "token")
     private String token;
     @Basic(optional = false)
@@ -62,7 +61,7 @@ public class UserToken implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date expirationDate;
     @JoinColumn(name = "id_user", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private User idUser;
 
     public UserToken() {

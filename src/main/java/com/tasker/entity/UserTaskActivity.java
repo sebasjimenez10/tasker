@@ -10,7 +10,6 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -52,10 +51,10 @@ public class UserTaskActivity implements Serializable {
     @Column(name = "priority")
     private int priority;
     @JoinColumn(name = "task_id", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private UserTask taskId;
     @JoinColumn(name = "status_id", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private UserTaskActivityStatus statusId;
 
     public UserTaskActivity() {

@@ -12,7 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -49,7 +48,7 @@ public class UserTaskActivityStatus implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "status_name")
     private String statusName;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "statusId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "statusId")
     private List<UserTaskActivity> userTaskActivityList;
 
     public UserTaskActivityStatus() {

@@ -41,6 +41,7 @@ function signUp() {
     $.ajax({
         type: "POST",
         url: "/tasker/rest/SignUpService/",
+        contentType: 'application/json',
         data: JSON.stringify(user),
         success: function(data) {
             console.log("Response text: " + data.responseText);
@@ -52,8 +53,11 @@ function signUp() {
                 if( data.responseText === "User name already taken" ){
                     myAlert(signinAlert, data.responseText, alertError);
                 }
+            }else{
+                if( data.status === 500 ){
+                    window.location.replace("/tasker/serverDown.html");
+                }
             }
-        },
-        contentType: 'application/json'
+        }
     });
 }

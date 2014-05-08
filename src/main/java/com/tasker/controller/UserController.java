@@ -42,7 +42,7 @@ public class UserController extends AbstractController {
     
     public boolean checkUserNameAvailability(String userName){
         boolean result = true;
-        Map<String, String> parameters = super.buildParameters();
+        Map<String, String> parameters = this.buildParameters();
         parameters.put("userName", userName);
         
         List<?> usersList = executeNameQuery("User.findByUserName", parameters);
@@ -57,5 +57,10 @@ public class UserController extends AbstractController {
     @Override
     protected EntityManager getEntityManager() {
         return em;
+    }
+    
+    @Override
+    public Map<String, String> buildParameters(){
+        return super.buildParameters();
     }
 }
