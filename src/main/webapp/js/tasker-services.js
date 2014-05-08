@@ -27,7 +27,7 @@ function signUp() {
     }
 
     // Ok we are ready to call the service!
-    
+
     // Let's create the user object
     var user = {
         name: name,
@@ -36,7 +36,7 @@ function signUp() {
         userName: userName,
         password: password1
     };
-    
+
     // Yey! ready! Let call that rest service
     $.ajax({
         type: "POST",
@@ -48,16 +48,48 @@ function signUp() {
             console.log("Response status: " + data.status);
             window.location.replace("/tasker/index.html");
         },
-        error: function(data){
-            if( data.status === 406 ){
-                if( data.responseText === "User name already taken" ){
+        error: function(data) {
+            if (data.status === 406) {
+                if (data.responseText === "User name already taken") {
                     myAlert(signinAlert, data.responseText, alertError);
                 }
-            }else{
-                if( data.status === 500 ){
+            } else {
+                if (data.status === 500) {
                     window.location.replace("/tasker/serverDown.html");
                 }
             }
+        }
+    });
+}
+
+function logIn() {
+    // Let's get something to work with
+    var username = $("#inputUser").val();
+    var password = $("#inputPassword").val();
+
+    //Let's check first if the username and password fields have anything
+    if( username.length === 0 || password.length === 0 ){
+        myAlert(loginAlert, "You have to provide a username and password, Duh!?",
+        alertError);
+        return;
+    }
+
+    //Let's call the login service
+    $.ajax({
+        type: "GET",
+        url: "/tasker/rest/LogInService?username=" + username 
+                + "&password=" + password,
+        contentType: 'application/json',
+        success: function(data) {
+            var loginResponse = data;
+            sessionStorage.setItem('token', loginResponse.token );
+            sessionStorage.setItem('username', loginResponse.username );
+            window.location.replace("/tasker/userHome.html");
+        },
+        error: function(data) {
+            myAlert(loginAlert, data.responseText, alertError);
+            $("#inputUser").val('');
+            $("#inputPassword").val('');
         }
     });
 }

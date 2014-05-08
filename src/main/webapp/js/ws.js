@@ -51,7 +51,7 @@ function httpHandle(method, xmlhttp) {
                 deleteActivityResponse( xmlhttp.responseText );
             }
         }else{
-            window.location.replace('serverDown.html');
+            //window.location.replace('serverDown.html');
             document.getElementById("errorCode").innerHTML = xmlhttp.status;
             alert( "Error code: " + xmlhttp.status );
         }

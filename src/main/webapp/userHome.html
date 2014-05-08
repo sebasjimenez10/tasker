@@ -6,14 +6,13 @@
         <link rel="shortcut icon" href="img/favicon.png">
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
         <script src="js/jquery.js"></script>
-        <script src="js/session-manager.js"></script>
         <script>
-            if( isUserLogged() == false ){
-                window.location.replace('loginError.html');
-            }
+//            if( isUserLogged() === false ){
+//                window.location.replace('loginError.html');
+//            }
         </script>
     </head>
-    <body onload="loadUser(); loadTasks();" style="background: url('img/bgimg-userhome.jpg'); background-repeat: no-repeat; background-size: cover;">
+    <body onload="//loadUser(); loadTasks();" style="background: url('img/bgimg-userhome.jpg'); background-repeat: no-repeat; background-size: cover;">
         <div style="background: rgba(119, 136, 153, 0.5);  border-radius: 10px">
             <div style="width: 50%" >
                 <img src="img/title.png" />
@@ -65,12 +64,12 @@
                                     <a class="brand">Select Task</a>
                                     <ul class="nav">
                                         <li>
-                                            <select onchange="updateTask();" id="tasksCombo" class="span6" style="margin-top: 5px"></select>
+                                            <select onchange="//updateTask();" id="tasksCombo" class="span6" style="margin-top: 5px"></select>
                                         </li>
                                     </ul>
                                     <div align="center">
-                                        <button onclick="showEditor()" class="btn btn-primary">Edit Task</button>
-                                        <button onclick="deleteTask()" class="btn btn-danger">Delete Task</button>
+                                        <button onclick="//showEditor()" class="btn btn-primary">Edit Task</button>
+                                        <button onclick="//deleteTask()" class="btn btn-danger">Delete Task</button>
                                         <!-- Button to trigger modal -->
                                         <a href="#myModal" role="button" onclick="document.getElementById('taskDesc').value = ''" class="btn btn-success" data-toggle="modal">Add New Task</a>
                                         <!-- Modal -->
@@ -97,13 +96,13 @@
                             <div id="taskEditor" class="hide">
                                 <div id="editorAlert" style="width: 90%"></div>
                                 <p style="margin: 10px;" class="lead" align="left">Edit Section
-                                    <button onclick="hideEditor();" type="button" class="close">[&times;]</button>
+                                    <button onclick="//hideEditor();" type="button" class="close">[&times;]</button>
                                 <div style="background-color: rgba(255, 255, 255, 0.1); width: 97%; border-radius: 5px;">
                                     <div align="center" style="color: gray; background-color: rgba(255, 255, 255, 1); width: 100%; border-radius: 5px;">
                                         <p class="lead" style="margin: 10px">
                                             Task name:&nbsp;
                                             <input id="taskName" class="span8" style="margin-top: 10px" type="text" />
-                                            <button onclick="updateTaskDesc()" class="btn btn-primary">Update task description</button>
+                                            <button onclick="//updateTaskDesc()" class="btn btn-primary">Update task description</button>
                                         </p>
                                     </div>
                                     <p style="margin: 10px;" class="lead" align="left">Task activities</p>
@@ -114,7 +113,7 @@
                                                     <div style="color: gray; background-color: rgba(255, 255, 255, 0.9); border-radius: 5px;">
                                                         <p class="lead">Add Activity
                                                             <input id="actDesc" class="span9" type="text" style="margin-top: 10px" placeholder="Type the description for your activity here..." />
-                                                            <button onclick="addActivity()" class="btn btn-success">Add Activity</button>
+                                                            <button onclick="//addActivity()" class="btn btn-success">Add Activity</button>
                                                         </p>
                                                     </div>
                                                 </td>
@@ -148,10 +147,10 @@
                     </div>
                 </div>
                 <script>// User for menu!
-                    $('#menu a').click(function (e) {
-                        e.preventDefault();
-                        $(this).tab('show');
-                    })
+//                    $('#menu a').click(function (e) {
+//                        e.preventDefault();
+//                        $(this).tab('show');
+//                    })
                 </script>
             </div>
         </div>
@@ -161,13 +160,11 @@
                 <div class="container">
                     <ul class="nav">
                         <li class="active"><a>Home</a></li>
-                        <li><a  onclick="logoutUser()" href="#">Logout</a></li>
+                        <li><a  onclick="//logoutUser()" href="#">Logout</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/user-utilities.js"></script>
-        <script src="js/ws.js"></script>
     </body>
 </html>

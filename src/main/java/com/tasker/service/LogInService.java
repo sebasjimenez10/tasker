@@ -68,7 +68,13 @@ public class LogInService {
         List<?> foundUser = userController
                 .executeNameQuery("User.findByUserName", parameters);
         
-        User user = (User)foundUser.get(0);
+        User user;
+        if( foundUser.size() > 0 ){
+            user = (User)foundUser.get(0);
+        }else{
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("Username does not exist").build();
+        }
         
         if( user.getPassword().equals(password) ){
             

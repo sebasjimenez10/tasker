@@ -1,26 +1,18 @@
 
-/**
- * This function stores user session data
- */
-function setUserData(name, last_name, username, user_id){
-    sessionStorage.setItem( "name", name );
-    sessionStorage.setItem( "last_name", last_name );
-    sessionStorage.setItem( "username", username );
-    sessionStorage.setItem( "id_user", user_id );
-}
 
 /**
- * This function deletes user session data
+ * 
+ * @returns {undefined}
  */
 function deleteUserData() {
-    sessionStorage.removeItem( "name" );
-    sessionStorage.removeItem( "last_name" );
+    sessionStorage.removeItem( "token" );
     sessionStorage.removeItem( "username" );
-    sessionStorage.removeItem( "id_user" );
 }
 
 /**
- * This function returns specified session item
+ * 
+ * @param {type} item
+ * @returns {DOMString}
  */
 function getUserDataItem(item) {
     return sessionStorage.getItem(item);
@@ -32,12 +24,12 @@ function getUserDataItem(item) {
 function isUserLogged() {
     var isUserIn = new Boolean(false);
     
-    var name = getUserDataItem("name");
-    var lastName = getUserDataItem("last_name");
-    var username = getUserDataItem("username");
-    var id_user = getUserDataItem("id_user");
+    var username = getUserDataItem('username');
+    var token = getUserDataItem('token');
     
-    if( name != null && lastName != null && username != null && id_user != null ){
+    console.log( username, token );
+    
+    if( username !== null && token !== null ){
         isUserIn = true;
     }
     return isUserIn;
