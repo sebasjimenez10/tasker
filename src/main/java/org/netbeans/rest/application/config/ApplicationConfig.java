@@ -32,6 +32,7 @@ public class ApplicationConfig extends Application {
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(com.tasker.service.LogInService.class);
         resources.add(com.tasker.service.SignUpService.class);
+        resources.add(com.tasker.service.UserTasksService.class);
     }
     
 }

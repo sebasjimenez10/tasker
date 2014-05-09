@@ -6,13 +6,13 @@
         <link rel="shortcut icon" href="img/favicon.png">
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
         <script src="js/jquery.js"></script>
+        <script src="js/tasker-helper.js"></script>
         <script>
-//            if( isUserLogged() === false ){
-//                window.location.replace('loginError.html');
-//            }
+            checkUserSession();
         </script>
+            
     </head>
-    <body onload="//loadUser(); loadTasks();" style="background: url('img/bgimg-userhome.jpg'); background-repeat: no-repeat; background-size: cover;">
+    <body onload="loadUserSession();" style="background: url('img/bgimg-userhome.jpg'); background-repeat: no-repeat; background-size: cover;">
         <div style="background: rgba(119, 136, 153, 0.5);  border-radius: 10px">
             <div style="width: 50%" >
                 <img src="img/title.png" />
@@ -32,10 +32,6 @@
                             <div class="pull-right" style="background-color: rgba(0, 0, 0, 0.8); border-radius: 5px">
                                 <p></p>
                                 <p id="userNameInfo" style="margin: 10px; color: white" align="center"><strong>User: </strong></p>
-                            </div>
-                            <div class="pull-right" style="background-color: rgba(0, 0, 0, 0.8); border-radius: 5px">
-                                <p></p>
-                                <p id="nameInfo" style="margin: 10px; color: white" align="center"><strong>Name: </strong></p>
                             </div>
                         </td>
                     </tr>
@@ -147,10 +143,10 @@
                     </div>
                 </div>
                 <script>// User for menu!
-//                    $('#menu a').click(function (e) {
-//                        e.preventDefault();
-//                        $(this).tab('show');
-//                    })
+                    $('#menu a').click(function (e) {
+                        e.preventDefault();
+                        $(this).tab('show');
+                    })
                 </script>
             </div>
         </div>
@@ -160,11 +156,12 @@
                 <div class="container">
                     <ul class="nav">
                         <li class="active"><a>Home</a></li>
-                        <li><a  onclick="//logoutUser()" href="#">Logout</a></li>
+                        <li><a  onclick="logOut();" href="#">Logout</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/tasker.js"></script>
     </body>
 </html>

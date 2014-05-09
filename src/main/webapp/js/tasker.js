@@ -1,4 +1,7 @@
-
+/**
+ * 
+ * @returns {undefined}
+ */
 function signUp() {
     // Let's get the user data from input fields
     var name = $("#inputName").val();
@@ -55,13 +58,17 @@ function signUp() {
                 }
             } else {
                 if (data.status === 500) {
-                    window.location.replace("/tasker/serverDown.html");
+                    window.location = "/tasker/serverDown.html";
                 }
             }
         }
     });
 }
 
+/**
+ * 
+ * @returns {undefined}
+ */
 function logIn() {
     // Let's get something to work with
     var username = $("#inputUser").val();
@@ -84,12 +91,44 @@ function logIn() {
             var loginResponse = data;
             sessionStorage.setItem('token', loginResponse.token );
             sessionStorage.setItem('username', loginResponse.username );
-            window.location.replace("/tasker/userHome.html");
+            window.location = "/tasker/userHome.html";
         },
         error: function(data) {
             myAlert(loginAlert, data.responseText, alertError);
             $("#inputUser").val('');
             $("#inputPassword").val('');
+        }
+    });
+}
+
+/**
+ * 
+ * @returns {undefined}
+ */
+function loadUserSession() {
+    // To load user session we have to get all the tasks
+    // and place them correctly and offcourse, set the user name!
+    
+    // Let's set the username
+    var username = sessionStorage.getItem('username');
+    $("#userNameInfo").html( $("#userNameInfo").html() + username );
+    
+    // Let's call the service to get user's tasks
+    var token = sessionStorage.getItem('token');
+    $.ajax({
+        type: "GET",
+        url: "/tasker/rest/UserTasksService",
+        contentType: 'application/json',
+        headers: {
+            token: token
+        },
+        success: function(data) {
+            console.log(data);
+            // TODO: Set the data all over the page
+        },
+        error: function(data) {
+            // TODO: implement a modal type of alert
+            console.log(data);
         }
     });
 }

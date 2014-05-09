@@ -23,6 +23,10 @@
             <param-name>com.sun.jersey.spi.container.ContainerRequestFilters</param-name>
             <param-value>com.tasker.security.SecurityFilter</param-value>
         </init-param>
+        <init-param>  
+            <param-name>jersey.config.server.provider.packages</param-name>  
+            <param-value>com.tasker.service;com.tasker.security</param-value>
+        </init-param>
 
         <load-on-startup>1</load-on-startup>
     </servlet>
